@@ -1,51 +1,81 @@
 package Package;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Controller {
-    private Auto car;
+    private ArrayList<Auto> cars;
     private AutoView view;
 
-    public Controller(Auto car, AutoView view) {
-        this.car = car;
+    public Controller(ArrayList<Auto> cars, AutoView view) {
+        this.cars = cars;
         this.view = view;
     }
 
-    public int getAutoId() {
-        return car.getId();
-    }
-    public void setAutoId(int id) {
-        car.setId(id);
-    }
-
-    public String getAutoMarke() {
-        return car.getMarke();
-    }
-    public void setAutoMarke(String marke) {
-        car.setMarke(marke);
+    public void addCar(Auto car) {
+        for (Auto c: cars)
+            if (c.getId() == car.getId())
+            {
+                System.out.println("Car already exists!");
+                return;
+            }
+        cars.add(car);
     }
 
-    public String getAutoModell() {
-        return car.getModell();
-    }
-    public void setAutoModell(String modell) {
-        car.setModell(modell);
-    }
-
-    public int getAutoJahr() {
-        return car.getJahr();
-    }
-    public void setAutoJahr(int jahr) {
-        car.setJahr(jahr);
+    public void removeCar(int id) {
+        for (Auto c: cars)
+            if (c.getId() == id)
+            {
+                cars.remove(c);
+                return;
+            }
+        System.out.println("Car not found!");
     }
 
-    public int getAutoKilometer() {
-        return car.getKilometer();
+    public boolean searchCar(int id) {
+        for (Auto c: cars)
+            if (c.getId() == id)
+                return true;
+        return false;
     }
-    public void setAutoKilometer(int kilometer) {
-        car.setKilometer(kilometer);
+    public void updateCar(Auto car)  {
+        for (Auto c: cars)
+            if (c.getId() == car.getId())
+            {
+                cars.remove(c);
+                cars.add(car);
+                System.out.println("Car updated successfully!");
+                return;
+            }
     }
 
-    public void updateView() {
-        view.printAutoDetails(car);
+    public void getCar(int id) {
+        for (Auto c: cars)
+            if (c.getId() == id)
+            {
+                view.printAutoDetails(c);
+                return;
+            }
+        System.out.println("Car not found!");
     }
 
+    public void getAllCars() {
+        for (Auto c: cars)
+            view.printAutoDetails(c);
+    }
+    public List<Auto> getCars() {
+        return cars;
+    }
+
+    public void setCars(ArrayList<Auto> cars) {
+        this.cars = cars;
+    }
+
+    public AutoView getView() {
+        return view;
+    }
+
+    public void setView(AutoView view) {
+        this.view = view;
+    }
 }

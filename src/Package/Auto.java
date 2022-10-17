@@ -7,6 +7,10 @@ public class Auto {
     private int jahr;
     private int kilometer;
 
+    public Auto(int id, String marke, String modell, int jahr, int kilometer) {
+        this.id = id; this.marke = marke; this.modell = modell; this.jahr = jahr; this.kilometer = kilometer;
+    }
+
     public int getId() {
         return id;
     }

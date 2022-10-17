@@ -7,31 +7,31 @@ public class AutoView {
         System.out.println("2. Remove car");
         System.out.println("3. Update car");
         System.out.println("4. Get Details of a car");
-        System.out.println("5. See all cars");
+        System.out.println("5. Get Details of all cars");
         System.out.println("6. Exit.");
     }
 
     public void printId() {
-        System.out.println("Id: ");
+        System.out.print("Id: ");
     }
     public void printMarke() {
-        System.out.println("Marke: ");
+        System.out.print("Marke: ");
     }
     public void printModell() {
-        System.out.println("Modell: ");
+        System.out.print("Modell: ");
     }
     public void printJahr() {
-        System.out.println("Jahr: ");
+        System.out.print("Jahr: ");
     }
     public void printKilometer() {
-        System.out.println("Kilometer: ");
+        System.out.print("Kilometer: ");
     }
     public void printAutoDetails(Auto car) {
-        System.out.println("Auto Details: ");
-        System.out.println("Id: " + car.getId());
-        System.out.println("Marke: " + car.getMarke());
-        System.out.println("Modell: " + car.getModell());
-        System.out.println("Jahr: " + car.getJahr());
-        System.out.println("Kilometer: " + car.getKilometer());
+        System.out.println("Car Details: ");
+        System.out.print("Id: " + car.getId());
+        System.out.print("\tMarke: " + car.getMarke());
+        System.out.print("\tModell: " + car.getModell());
+        System.out.print("\tJahr: " + car.getJahr());
+        System.out.println("\tKilometer: " + car.getKilometer());
     }
 }
